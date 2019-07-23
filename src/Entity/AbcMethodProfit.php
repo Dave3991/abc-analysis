@@ -13,8 +13,7 @@ class AbcMethodProfit
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @var float
+     * @var int
      */
     private $abc_profit_id;
 
@@ -34,7 +33,7 @@ class AbcMethodProfit
     }
 
     /**
-     * @param float $abc_profit_id
+     * @param int $abc_profit_id
      */
     public function setAbcProfitId(int $abc_profit_id)
     {
