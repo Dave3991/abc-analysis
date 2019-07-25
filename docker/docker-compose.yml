@@ -1,0 +1,31 @@
+version: '3.6'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ../:/usr/share/nginx/html/
+      - ./site.conf:/etc/nginx/conf.d/site.conf
+    links:
+      - php
+  php:
+      image: php:7.3-fpm
+
+#  mariadb:
+#      image: mariadb:10.4
+#      ports:
+#          - "33306:3306"
+#      environment:
+#          MYSQL_ROOT_PASSWORD: 123
+#      volumes:
+#          - mariadb:/var/lib/mysql
+#      networks:
+#          - outside
+
+networks:
+  outside:
+    driver: bridge
+
+volumes:
+    mariadb: {}
