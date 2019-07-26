@@ -5,11 +5,13 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ../:/usr/share/nginx/html/
-      - ./site.conf:/etc/nginx/conf.d/site.conf
-    links:
+      - ../:/var/www
+      - ./sites/default.conf:/etc/nginx/conf.d/site.conf
+    depends_on:
       - php
   php:
+      ports:
+        - "9090:9000"
       image: php:7.3-fpm
 
 #  mariadb:
